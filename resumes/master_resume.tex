@@ -1,194 +1,80 @@
-\documentclass[letterpaper,10pt]{article}
+\documentclass[10pt,a4paper]{article}
 
-\usepackage[margin=0.4in]{geometry}
-\usepackage{titlesec}
-\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=0.55in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \usepackage{enumitem}
+\usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\input{glyphtounicode}
 
-%----------PAGE SETUP----------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
-\urlstyle{same}
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-6pt}\rule{\textwidth}{0.5pt}]
+\titlespacing*{\section}{0pt}{7pt}{5pt}
 
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    urlcolor=blue
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt, parsep=0pt, label=--}
+
+\newcommand{\entry}[4]{%
+  \textbf{#1} \hfill \textbf{#2}\\
+  \textit{#3} \hfill \textit{#4}\vspace{1pt}
 }
 
-\pdfgentounicode=1
-
-%----------SECTION FORMATTING----------
-\titleformat{\section}
-  {\vspace{-2pt}\scshape\raggedright\large}
-  {}{0em}{}
-  [\color{black}\titlerule \vspace{-6pt}]
-
-%----------CUSTOM COMMANDS----------
-\newcommand{\resumeItem}[1]{
-    \item\small{#1 \vspace{-2pt}}
-}
-
-\newcommand{\resumeSubheading}[4]{
-    \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]
-        {l@{\extracolsep{\fill}}r}
-        \textbf{#1} & #2 \\
-        \textit{\small #3} & \textit{\small #4} \\
-    \end{tabular*}
-    \vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}
-        {l@{\extracolsep{\fill}}r}
-        \small #1 & #2 \\
-    \end{tabular*}
-    \vspace{-7pt}
-}
-
-\newcommand{\resumeSubHeadingListStart}{
-    \begin{itemize}[leftmargin=0.15in, label={}]
-}
-
-\newcommand{\resumeSubHeadingListEnd}{
-    \end{itemize}
-}
-
-\newcommand{\resumeItemListStart}{
-    \begin{itemize}[leftmargin=0.18in]
-}
-
-\newcommand{\resumeItemListEnd}{
-    \end{itemize}\vspace{-6pt}
-}
-
-% ---------- Document ----------
 \begin{document}
 
-% ---------- Header ----------
 \begin{center}
-    {\fontsize{17}{19}\selectfont\textbf{REDACTED NAME}}\\[-1pt]
-    \small
-    Noida, India \,|\, +91 0000000000 \,|\,
-    \href{mailto:redacted@example.com}{redacted@example.com}
-    \\[-1pt]
-    \href{https://linkedin.com/in/thealonemusk}{LinkedIn}
-    \,|\,
-    \href{https://github.com/thealonemusk}{GitHub}
-    \,|\,
-    \href{https://codeforces.com/profile/thealonemusk}{Codeforces}
+  {\LARGE \textbf{Aakash Dhawan}}\\[2pt]
+  \textbf{Product Manager} \\[2pt]
+  Chandigarh, India \,|\, +91-9888038274 \,|\, \href{mailto:aakashdhawan619@gmail.com}{aakashdhawan619@gmail.com} \,|\, \href{https://linkedin.com/in/kashaakashh}{linkedin.com/in/kashaakashh}
 \end{center}
 
-\vspace{-7pt}
+\section*{Summary}
+Product Manager with 3+ years in a tech-led consumer platform at Paytm, serving more than 12 million merchant devices across India. Strong at understanding everyday users and turning their problems into clear requirements: launched multilingual product experiences in 11 languages and a voice and chat assistant for merchants. Uses data and structured problem breakdown to prioritise what to build, and works closely with engineering, design, business, and operations to ship, measure, and iterate.
 
-% ---------- Summary ----------
-\section{Summary}
-\small
-Backend engineer with production ownership of device-to-cloud payment infrastructure at Paytm: a 6M-device fleet serving 600 TPS of live transactions, including bill payments. Ships Java backend services, zero-downtime migrations, CI/CD and OTA releases, and production LLM-agent tooling; builds LLM inference and agent-evaluation infrastructure (vLLM, goodput benchmarking, agent reliability evals).
+\section*{Technical Skills}
+\textbf{Product:} Problem Discovery, Prioritisation, PRDs, User Stories, Roadmaps, Backlog Management, UAT, Go-to-Market Planning, Success Metrics, Experimentation\\
+\textbf{Research \& Analytics:} SQL, Funnel and Conversion Analysis, Dashboards, Usage Analysis, Customer Feedback Analysis, Competitive Analysis\\
+\textbf{AI \& Technology:} LLMs, Conversational AI, AI Assistants, REST APIs, API Contracts, Webhooks, JWT, Microservices\\
+\textbf{Tools:} JIRA, Agile/Scrum, Git, Postman, Kibana\\
+\textbf{Domains:} Consumer Platforms, Multilingual Products, Merchant and Small Business Users, Payments, IoT, Consumer Devices
 
-% ---------- Experience ----------
-\section{Experience}
-\begin{itemize}[label={},leftmargin=0pt]
+\section*{Professional Experience}
 
-  \resumeSubheading
-    {Paytm}{Jan 2025 -- Present}
-    {Software Engineer}{Noida, India}
-
-  \begin{itemize}
-    \resumeItem{Led zero-downtime migration of 5M deployed devices to new backend hosts/endpoints, staging rollout by hardware family to protect live transaction traffic (600 TPS), including bill payments.}
-
-    \resumeItem{Owned Indonesia IoT launch end-to-end across 100K devices: moved connectivity to TLS over HTTPS/MQTTS and validated certificates; sole production owner of its Spring Boot services (Kafka, MySQL, Redis) on AWS IoT Core and EKS.}
-
-    \resumeItem{Owned CI/CD and OTA releases for 18 device types (Jenkins, delta updates, canary rollouts); fixed a delta-update failure blocking production distribution.}
-
-    \resumeItem{Fixed a messaging-client memory leak and use-after-free; reduced 3--8s HTTP download latency on Soundbox devices under concurrent downloads.}
-
-    \resumeItem{Built a Python + Slack orchestration system routing tickets to autonomous Claude Code agents with MCP tool calling; shipped 45 production changes via automated PR workflows.}
-  \end{itemize}
-
-  \resumeSubheading
-    {Denr Financial Services}{Mar 2024 -- Jun 2024}
-    {Software Developer Intern}{Remote}
-
-  \begin{itemize}
-    \resumeItem{Built backend services on AWS Lambda, Cognito and S3; improved API response times by 40\% through asynchronous processing and caching.}
-  \end{itemize}
-
+\entry{Paytm}{Jul 2025 -- Present}{Product Manager}{Noida, India}
+\begin{itemize}
+  \item Led multilingual product strategy across 11 languages, enabling one-click language switching for more than 12M merchant devices, so users could use the product in the language they're most comfortable with.
+  \item Launched an AI-powered merchant support assistant with multilingual voice and chat support, making help easier to access for users who prefer speaking over typing.
+  \item Identified product problems from merchant behaviour and transaction data, and designed workflows that reduced false merchant claims by about 80\%.
+  \item Owned end-to-end delivery from PRDs and user stories to rollout, release coordination, and post-launch measurement with engineering, design, and business teams.
 \end{itemize}
 
-% ---------- Projects ----------
-\section{Projects}
-\resumeSubHeadingListStart
-
-  \resumeProjectHeading
-    {\textbf{InferStack} $-$ LLM Inference Serving \& Capacity Benchmarking}
-    {\textit{Python, vLLM, FastAPI, Prometheus, Grafana, Docker}}
-
-  \resumeItemListStart
-    \resumeItem{Built an open-loop Poisson load harness measuring SLO-bound goodput; sustained 16.5 req/s on one T4 GPU within 1s TTFT / 50ms TPOT SLOs (peak goodput 13.5 req/s).}
-
-    \resumeItem{Validated vLLM continuous batching at 7.3x speedup (91\% of theoretical ceiling); OpenAI-compatible FastAPI gateway adds only \textasciitilde7ms to TTFT.}
-
-    \resumeItem{Instrumented batch size, queue depth and KV-cache utilization; traced a median TTFT jump from 120ms to 5.1s to compute saturation rather than queueing.}
-  \resumeItemListEnd
-
-  \resumeProjectHeading
-    {\textbf{\href{https://github.com/thealonemusk/DriftBench}{\underline{DriftBench}}} $-$ LLM Coding-Agent Evaluation Harness}
-    {\textit{Python, pytest}}
-
-  \resumeItemListStart
-    \resumeItem{Built a deterministic harness running 30 sequential coding tickets against an evolving codebase, with 14 hidden invariants detecting regressions and state drift.}
-
-    \resumeItem{Measured retrieval recall degradation from 90\% to 25\% in a 2x2 ablation against a sliding-window baseline.}
-  \resumeItemListEnd
-
-  \resumeProjectHeading
-    {\textbf{\href{https://github.com/thealonemusk/OktaDB}{\underline{OktaDB}}} $-$ Embedded Storage Engine}
-    {\textit{C, B+Tree, WAL, File Systems}}
-
-  \resumeItemListStart
-    \resumeItem{Built a persistent C key-value storage engine from scratch with a custom 4KB paged binary format and file-backed pager, using no external libraries.}
-
-    \resumeItem{Implemented a B+Tree with $O(\log n)$ lookups and write-ahead logging for crash recovery, with page compaction and correctness tests.}
-  \resumeItemListEnd
-
-\resumeSubHeadingListEnd
-
-% ---------- Skills ----------
-\section{Technical Skills}
-\small
-\textbf{Languages:} Java, Python, C, C++, SQL, TypeScript \\
-\textbf{Backend:} Spring Boot, FastAPI, Kafka, Microservices, REST APIs, MQTT/MQTTS, TLS \\
-\textbf{AI/LLM:} vLLM, LLM Serving, Agent Orchestration, Agent Evaluation, Claude Code, MCP \\
-\textbf{Cloud \& DevOps:} AWS (EKS, IoT Core, Lambda, S3), Docker, Kubernetes, Jenkins, Prometheus, Grafana \\
-\textbf{Databases:} MySQL, PostgreSQL, Redis, MongoDB
-
-% ---------- Education ----------
-\section{Education}
-\begin{itemize}[label={},leftmargin=0pt]
-  \resumeSubheading
-    {National Institute of Technology, Jalandhar}{Nov 2021 -- Jul 2025}
-    {B.Tech in Computer Science and Engineering, CGPA: 7.79/10}{Jalandhar, India}
+\vspace{3pt}
+\entry{Paytm}{Jul 2023 -- Jun 2025}{Associate Product Manager}{Noida, India}
+\begin{itemize}
+  \item Owned product strategy for the Soundbox platform, contributing to nearly 80\% advertising revenue growth through post-transaction campaigns.
+  \item Introduced IoT telemetry monitoring that helped merchants by reducing network-related issues by over 60\%, based on analysis of device signal metrics.
+  \item Translated business and user requirements into PRDs, workflows, and API contracts, and defined rollout strategies with cross-functional stakeholders.
 \end{itemize}
 
-% ---------- Achievements ----------
-\section{Achievements \& Competitive Programming}
-\begin{itemize}[leftmargin=14pt,itemsep=0.5pt,topsep=1pt]
-    \resumeItem{Codeforces Expert (peak 1676; ranked 109/40,000+ in Educational Round 186); 1200+ problems solved; LeetCode rating 1669.}
+\vspace{3pt}
+\entry{Paytm}{Aug 2022 -- Jun 2023}{QA Engineer}{Noida, India}
+\begin{itemize}
+  \item Validated product quality across backend services and device workflows, and partnered with Product Managers on requirement reviews and UAT.
+  \item Investigated production issues using logs, SQL, and Kibana to understand how real users were affected.
 \end{itemize}
+
+\section*{Selected Product Initiative}
+\textbf{AI Powered API Quality Platform} \hfill \textit{Product Case Study}
+\begin{itemize}
+  \item Designed an AI-powered platform for test generation and failure analysis, with PRDs, roadmap, success metrics, and a go-to-market plan.
+\end{itemize}
+
+\section*{Education}
+\textbf{Chandigarh University} \hfill \textbf{2023--2025}\\
+Master of Business Administration (MBA) \hfill Punjab, India\\[2pt]
+\textbf{Chandigarh Group of Colleges} \hfill \textbf{2018--2022}\\
+B.Tech, Electronics \& Communication Engineering \hfill Mohali, India
 
 \end{document}

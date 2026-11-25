@@ -7,11 +7,12 @@ machine and never needs to be pasted into a chat.
 
     python scripts/check_ai_key.py
 
-Keys are recognised by prefix:
+GEMINI_API_KEY is always checked as Gemini (Google issues more than one key
+shape — "AIza..." and "AQ...." have both been seen — so the field name
+decides, not a prefix guess). gpt_key is recognised by prefix:
 
     sk-proj- / sk-      OpenAI
     sk-ant-             Anthropic
-    AIza                Google Gemini
     anything else       tried as OpenAI-compatible if OPENAI_BASE_URL is set
 
 A valid key is not the same as a usable one: a key can authenticate and still
@@ -105,7 +106,14 @@ def main() -> None:
             print(f"{label:16} SKIP  not set (or still the placeholder)")
             continue
 
-        if key.startswith("sk-ant-"):
+        # GEMINI_API_KEY is a dedicated field — it's always a Gemini key
+        # regardless of prefix. Google's keys aren't all "AIza..."; AI Studio
+        # also issues "AQ...."-shaped keys, and guessing wrong here reported
+        # a working key as "UNKNOWN format" and skipped testing it entirely.
+        if label == "GEMINI_API_KEY":
+            ok, detail = check_gemini(key, getattr(settings, "gemini_model", "gemini-2.0-flash"))
+            kind = "Gemini"
+        elif key.startswith("sk-ant-"):
             ok, detail = check_anthropic(key)
             kind = "Anthropic"
         elif key.startswith("AIza"):
