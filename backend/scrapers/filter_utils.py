@@ -21,6 +21,12 @@ EXCLUDED_TITLE_KEYWORDS = [
     "advanced developer",
 ]
 
+# "manager" is excluded above to catch senior SWE titles ("Engineering
+# Manager"), but it also matches "Product Manager" — a role this list was
+# never meant to touch. These phrases bypass *only* the "manager" keyword;
+# every other exclusion (senior, lead, director, ...) still applies normally.
+PM_TITLE_ALLOWLIST = ["product manager"]
+
 EXCLUDED_TITLE_REGEXES = [
     r'\b(?:ii|iii|iv|v)(?:new)?\b',
     r'\bl[2-7]\b',
@@ -245,7 +251,10 @@ def is_job_experience_valid(
     if title and INTERN_PATTERN.search(title):
         return False, f"Title mentions intern/internship: '{title}'"
 
+    is_pm_title = any(phrase in title_lower for phrase in PM_TITLE_ALLOWLIST)
     for keyword in EXCLUDED_TITLE_KEYWORDS:
+        if keyword == "manager" and is_pm_title:
+            continue
         if _title_has_keyword(title_lower, keyword):
             return False, f"Title contains senior/excluded keyword: '{keyword}' in '{title}'"
 
