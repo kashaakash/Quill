@@ -37,10 +37,10 @@ class Settings(BaseSettings):
     workday_password: str = ""
 
     # User profile
-    user_full_name: str = "REDACTED NAME"
+    user_full_name: str = ""
     user_email: str = ""
     user_phone: str = ""
-    user_location: str = "Bengaluru, India"
+    user_location: str = ""
     user_github: str = ""
     user_linkedin_url: str = ""
     user_portfolio: str = ""
