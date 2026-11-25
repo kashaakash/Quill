@@ -176,7 +176,7 @@ async def scrape_naukri_jobs(
                                     "jd_text": "",
                                     "platform": "naukri",
                                 }
-                                ok, _ = passes_hard_filters(preview)
+                                ok, _ = passes_hard_filters(preview, max_years=settings.experience_years)
                                 if not ok:
                                     continue
 

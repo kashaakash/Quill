@@ -126,7 +126,9 @@ def _location_is_ambiguous(location_str: str) -> bool:
 
 def _passes_career_filters(job_data: dict) -> bool:
     """Apply experience, location, frontend, and career-site eligibility checks."""
-    ok, reason = passes_hard_filters(job_data)
+    from backend.config import settings
+
+    ok, reason = passes_hard_filters(job_data, max_years=settings.experience_years)
     if not ok:
         logger.debug(f"Career filter rejected [{job_data.get('company')} - {job_data.get('title')}]: {reason}")
         return False
